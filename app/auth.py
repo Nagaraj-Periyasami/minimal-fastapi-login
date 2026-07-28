@@ -40,5 +40,5 @@ def get_user_by_session(session_id: str):
             WHERE sessions.id = ?
             """,
             (session_id,),
-        ).returnone()
+        ).fetchone()
     return dict(row) if row else None
