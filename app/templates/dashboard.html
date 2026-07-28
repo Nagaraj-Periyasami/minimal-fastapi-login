@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+
+<div class="card">
+  <p>You are logged in as <strong>{{ user.email }}</strong>.</p>
+  <p><a href="/logout">Logout</a></p>
+</div>
+{% endblock %}
