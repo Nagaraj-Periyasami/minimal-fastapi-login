@@ -6,7 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from .db import init_db, get_conn
 from .auth import hash_password, verify_password, create_session, delete_session, get_user_by_session
 
-app = FastAPI
+app = FastAPI()
 
 templates = Jinja2Templates(directory="app/templates")
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
@@ -33,7 +33,6 @@ def home(request: Request):
     return RedirectResponse("/login", status_code=303)
 
 
-
 @app.get("/register", response_class=HTMLResponse)
 def register_page(request: Request):
     error = request.query_params.get("error")
@@ -46,12 +45,12 @@ def register(email: str = Form(...), password: str = Form(...)):
     if len(password) < 6:
         return RedirectResponse("/register?error=Password%20must%20be%20at%20least%206%20chars", status_code=303)
 
-    pw_hash = hash_password(password)
+    password_hash = hash_password(password)
     try:
         with get_conn() as conn:
             conn.execute(
                 "INSERT INTO users (email, password_hash) VALUES (?, ?)",
-                (email, pw_hash),
+                (email, password_hash),
             )
             conn.commit()
     except Exception:
@@ -93,11 +92,12 @@ def login(email: str = Form(...), password: str = Form(...)):
     return resp
 
 
+
 @app.get("/dashboard", response_class=HTMLResponse)
 def dashboard(request: Request):
     user = current_user(request)
     if not user:
-        return RedirectResponse("/login?error=Please%20log%20inŠ, status_code=303)
+        return RedirectResponse("/login?error=Please%20log%20in", status_code=303)
     return templates.TemplateResponse("dashboard.html", {"request": request, "user": user})
 
 
