@@ -33,7 +33,7 @@ nav a {
   text-decoration: none;
 }
 
-nav a.hover {
+nav a:hover {
   text-decoration: underline;
 }
 
@@ -74,7 +74,7 @@ button {
   cursor: pointer;
 }
 
-nbutton:hover {
+boutton:hover {
   filter: brightness(0.95);
 }
 
@@ -87,7 +87,7 @@ nbutton:hover {
   max-width: 420px;
 }
 
-np.success {
+p.success {
   background: #e8ffef;
   border: 1px solid #a6f3bf;
   padding: 10px;
@@ -95,7 +95,7 @@ np.success {
   max-width: 420px;
 }
 
-.muted {
+n.muted {
   color: #666;
   margin-top: 12px;
 }
