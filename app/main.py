@@ -130,6 +130,6 @@ def logout(request: Request):
 
 # Optional: show register errors cleanly
 @app.get("/register", response_class=HTMLResponse)
-def register_page_with_error(request: Request):
+def register_page(request: Request):
     error = request.query_params.get("error")
     return templates.TemplateResponse("register.html", {"request": request, "error": error})
