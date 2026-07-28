@@ -5,13 +5,11 @@ body {
   color: #111;
 }
 
-
 .container {
   max-width: 860px;
   margin: 0 auto;
   padding: 24px;
 }
-
 
 .header {
   display: flex;
@@ -19,7 +17,6 @@ body {
   align-items: center;
   margin-bottom: 24px;
 }
-
 
 .brand {
   font-weight: 700;
@@ -32,11 +29,6 @@ nav a {
   color: #333;
   text-decoration: none;
 }
-
-nav a:hover {
-  text-decoration: underline;
-}
-
 
 .card {
   background: white;
@@ -67,17 +59,11 @@ button {
   width: 100%;
   padding: 10px;
   border: 0;
-  border=radius: 8px;
   border-radius: 8px;
   background: #2d5bff;
   color: white;
   cursor: pointer;
 }
-
-boutton:hover {
-  filter: brightness(0.95);
-}
-
 
 .alert {
   background: #ffe8e8;
@@ -87,7 +73,7 @@ boutton:hover {
   max-width: 420px;
 }
 
-p.success {
+.success {
   background: #e8ffef;
   border: 1px solid #a6f3bf;
   padding: 10px;
@@ -95,7 +81,7 @@ p.success {
   max-width: 420px;
 }
 
-n.muted {
+.muted {
   color: #666;
   margin-top: 12px;
 }
