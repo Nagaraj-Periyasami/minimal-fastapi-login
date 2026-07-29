@@ -40,10 +40,6 @@ def home(request: Request):
     return RedirectResponse("/login", status_code=303)
 
 
-@app.get("/register", response_class=HTMLResponse)
-def register_page(request: Request):
-    return templates.TemplateResponse("register.html", {"request": request, "error": None})
-
 
 @app.post("/register")
 def register(email: str = Form(...), password: str = Form(...)):
