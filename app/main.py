@@ -46,7 +46,7 @@ def register(email: str = Form(...), password: str = Form(...)):
     email = email.strip().lower()
 
     if len(password.encode("utf-8")) > 72:
-    return RedirectResponse("/register?error=Password%20must%20be%20<=%2072%20bytes", status_code=303)
+        return RedirectResponse("/register?error=Password%20must%20be%20<=%2072%20bytes", status_code=303)
 
     password_hash = hash_password(password)
 
